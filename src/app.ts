@@ -4,10 +4,9 @@ dotenv.config();
 import config from "config";
 import connect from "./utils/connect";
 import logger from "./utils/logger";
-import routes from "./routes";
+import server from "./server";
 import deserializeUser from "./middleware/deserializeUser";
 import swaggerDocs from "./utils/swagger";
-import sessionApi from "./api/session.api";
 
 const port = config.get<number>("port");
 
@@ -21,8 +20,7 @@ app.listen(port, async () => {
   logger.info(`App is running at http://localhost:${port}`);
 
   await connect();
-  //sessionApi(app);
-  routes(app);
+  server(app);
 
   swaggerDocs(app, port);
 });

@@ -1,19 +1,11 @@
 function sessionSwagger() {
   /**
    * @openapi
-   * security:
-   *   - bearerAuth: []
-   * components:
-   *   securitySchemes:
-   *     bearerAuth:
-   *       type: http
-   *       scheme: bearer
-   *       bearerFormat: JWT
    * paths:
-   *   '/api/sessions2':
+   *   '/api/sessions':
    *    post:
    *       tags:
-   *       - Session2:
+   *       - Session:
    *       summary: Create user session
    *       requestBody:
    *        required: true
@@ -32,7 +24,7 @@ function sessionSwagger() {
    *          description: Unauthorized
    *    get:
    *      tags:
-   *      - Session2:
+   *      - Session:
    *      summary: Retrieve list of access tokens and refresh tokens
    *      responses:
    *       200:

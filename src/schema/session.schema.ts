@@ -51,7 +51,6 @@ import { object, string } from "zod";
  *            type: string
  */
 
-//PENDING
 export const createSessionSchema = object({
   body: object({
     email: string({

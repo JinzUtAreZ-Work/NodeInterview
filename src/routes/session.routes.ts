@@ -9,7 +9,7 @@ import requireUser from "../middleware/requireUser";
 
 const sessionRouter: Router = Router();
 sessionRouter
-  .route("/sessions2")
+  .route("/sessions")
   .post(validateResource(createSessionSchema), createUserSessionHandler)
   .get(requireUser, getUserSessionsHandler);
 
