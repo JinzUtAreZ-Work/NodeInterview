@@ -16,7 +16,7 @@ const { privateKey, publicKey } = generateKeyPairSync("rsa", {
 console.log(publicKey);
 console.log(privateKey);
 
-const secretMessage = "Asshole";
+const secretMessage = "Ass";
 
 const encryptedData = publicEncrypt(publicKey, Buffer.from(secretMessage));
 

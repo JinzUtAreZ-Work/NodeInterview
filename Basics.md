@@ -24,4 +24,12 @@
 15. npm i --save-dev @types/swagger-jsdoc @types/swagger-ui-express
     npm i swagger-jsdoc swagger-ui-express
     create swagger.ts
+
     1. pattern in routes, then schema if necessary.
+
+16. npm i supertest jest ts-jest @types/jest @types/supertest -D
+    create a jest.config.js file and copy paste codes written there.
+    create a name.test.ts file inside the **tests** folder
+    create a describe block that has a description of the test that will occur followed by an it block which will show the expected output.
+    in package.json -> scripts -> "test": "jest"
+    npm test filename --watch (specific file to be tested)
