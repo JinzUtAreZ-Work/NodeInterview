@@ -19,6 +19,15 @@ const sessionInput = {
   password: "Password123123123123",
 };
 
+const mockRequest = () => {
+  return {
+    body: {
+      email: "test123123123@example.com",
+      password: "Password123123123123",
+    },
+  };
+};
+
 const userId = new mongoose.Types.ObjectId().toString();
 
 const userPayload = {
@@ -28,6 +37,13 @@ const userPayload = {
   createdAt: "2021-09-30T13:31:07.674Z",
   updatedAt: "2021-09-30T13:31:07.674Z",
   __v: 0,
+};
+
+const mockResponse = () => {
+  return {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn().mockReturnThis(),
+  };
 };
 
 // user: userId,
@@ -82,18 +98,25 @@ describe("user", () => {
     });
   });
 
+  // Pending fix
   // describe("create user session", () => {
   //   it("should return a 401", async () => {
-  //     const createUserServiceMock = jest
-  //       .spyOn(UserService, "validatePassword")
+  //     const mockReq = (mockRequest().body = {
   //       // @ts-ignore
-  //       .mockRejectedValueOnce("Invalid email or password");
-  //     const { statusCode, body } = await supertest(app)
-  //       .post("/api/sessions")
-  //       .send(sessionInput);
-  //     console.log("status-session", statusCode, "body", body);
-  //     expect(statusCode).toBe(401);
-  //     expect(createUserServiceMock).toHaveBeenCalled();
+  //       body: { email: "", password: "" },
+  //     });
+  //     const mockRes = mockResponse();
+  //     // @ts-ignore
+  //     await createUserSessionHandler(mockReq, mockRes);
+  //     expect(UserService.validatePassword).toHaveBeenCalledWith({
+  //       email: "",
+  //       password: "",
+  //     });
+
+  //     expect(mockRes.status).toHaveBeenCalledWith(401);
+  //     expect(mockRes.json).toHaveBeenCalledWith({
+  //       error: "Invalid email or password",
+  //     });
   //   });
   // });
 
