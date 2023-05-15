@@ -2,6 +2,7 @@ import { Express, Request, Response } from "express";
 import sessionSwagger from "./swagger/session.swagger";
 import sessionRouter from "./routes/session.routes";
 import userRouter from "./routes/user.routes";
+import productRouter from "./routes/product.routes";
 
 function routesDocs(app: Express) {
   /**
@@ -30,6 +31,8 @@ function routesDocs(app: Express) {
 
   sessionSwagger();
   app.use("/api", sessionRouter);
+
+  app.use("/api/products", productRouter);
 }
 
 export default routesDocs;

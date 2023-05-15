@@ -1,5 +1,5 @@
 import { get } from "lodash";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, response } from "express";
 import { verifyJwt } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
 
@@ -19,7 +19,18 @@ const deserializeUser = async (
     return next();
   }
 
-  const { decoded, expired } = verifyJwt(accessToken, "accessTokenPublicKey");
+  const { decoded, expired, valid } = verifyJwt(
+    accessToken,
+    "accessTokenPublicKey"
+  );
+
+  // console.log("valid", valid);
+  // if (!valid) {
+  //   console.log("valid", valid, req.headers);
+  //   // delete req.headers["authorization"];
+  //   // delete req.headers["x-refresh"];
+  //   res.removeHeader("authorization");
+  // }
 
   if (decoded) {
     res.locals.user = decoded;
@@ -36,9 +47,12 @@ const deserializeUser = async (
     const result = verifyJwt(newAccessToken as string, "accessTokenPublicKey");
 
     res.locals.user = result.decoded;
+
+    //console.log("deserialize", result);
+
     return next();
   }
-
+  //console.log("deserialized", decoded, expired);
   return next();
 };
 

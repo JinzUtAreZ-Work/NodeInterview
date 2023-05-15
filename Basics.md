@@ -33,3 +33,5 @@
     create a describe block that has a description of the test that will occur followed by an it block which will show the expected output.
     in package.json -> scripts -> "test": "jest"
     npm test filename --watch (specific file to be tested)
+
+17. npm i nanoid, npm i @types/nanoid -D
