@@ -1,7 +1,8 @@
 import { get } from "lodash";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, response } from "express";
 import { verifyJwt } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
+import { validatePassword } from "../service/user.service";
 
 const deserializeUser = async (
   req: Request,
@@ -19,7 +20,17 @@ const deserializeUser = async (
     return next();
   }
 
-  const { decoded, expired } = verifyJwt(accessToken, "accessTokenPublicKey");
+  const { decoded, expired, valid } = verifyJwt(
+    accessToken,
+    "accessTokenPublicKey"
+  );
+
+  const user = await validatePassword(req.body);
+  // console.log("deserializeRequest", user, req.body);
+
+  if (!valid && !user) {
+    return res.status(401).json({ error: "Please login again" });
+  }
 
   if (decoded) {
     res.locals.user = decoded;
@@ -36,9 +47,12 @@ const deserializeUser = async (
     const result = verifyJwt(newAccessToken as string, "accessTokenPublicKey");
 
     res.locals.user = result.decoded;
+
+    //console.log("deserialize", result);
+
     return next();
   }
-
+  //console.log("deserialized", decoded, expired);
   return next();
 };
 

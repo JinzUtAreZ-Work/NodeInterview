@@ -33,3 +33,16 @@
     create a describe block that has a description of the test that will occur followed by an it block which will show the expected output.
     in package.json -> scripts -> "test": "jest"
     npm test filename --watch (specific file to be tested)
+
+17. npm i nanoid, npm i @types/nanoid -D
+
+18. product.test = npm i mongodb-memory-server -D
+    describe.only / it.only = run that particular tests
+    describe.skip / it.skip = skip those tests
+
+19. swagger tags position based on filename
+
+20. MongoServerError: E11000 duplicate key error collection: used for indexing values for fast searching  
+    SOLUTION:
+    a. db.products.getIndexes()
+    b. db.products.dropIndexes()
