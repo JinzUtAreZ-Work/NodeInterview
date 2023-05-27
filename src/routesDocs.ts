@@ -1,5 +1,6 @@
 import { Express, Request, Response } from "express";
-import sessionSwagger from "./swagger/session.swagger";
+import sessionSwagger from "./swagger/1_session.swagger";
+import productSwagger from "./swagger/product.swagger";
 import sessionRouter from "./routes/session.routes";
 import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes";
@@ -32,6 +33,7 @@ function routesDocs(app: Express) {
   sessionSwagger();
   app.use("/api", sessionRouter);
 
+  productSwagger();
   app.use("/api/products", productRouter);
 }
 

@@ -1,5 +1,54 @@
 import { object, number, string, TypeOf } from "zod";
 
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    CreateProductInput:
+ *      type: object
+ *      required:
+ *        - title
+ *        - description
+ *        - price
+ *        - image
+ *      properties:
+ *        title:
+ *          type: string
+ *          default: TestProduct
+ *        description:
+ *          type: string
+ *          default: Description should be at least 20 characters to avoid errors
+ *        price:
+ *          type: number
+ *          default: 100
+ *        image:
+ *          type: string
+ *          default: imagestring
+ *    CreateProductResponse:
+ *      type: object
+ *      properties:
+ *        user:
+ *          type: string
+ *        title:
+ *          type: string
+ *        description:
+ *          type: string
+ *        price:
+ *          type: number
+ *        image:
+ *          type: string
+ *        _id:
+ *          type: string
+ *        productId:
+ *          type: string
+ *        createdAt:
+ *          type: string
+ *        updatedAt:
+ *          type: string
+ *        __v:
+ *          type: number
+ */
+
 const payload = {
   body: object({
     title: string({
@@ -7,7 +56,7 @@ const payload = {
     }),
     description: string({
       required_error: "Description is required",
-    }).min(120, "description should be at least 120 characters"),
+    }).min(20, "description should be at least 20 characters"),
     price: number({
       required_error: "Price is required",
     }),

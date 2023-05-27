@@ -9,6 +9,7 @@ export async function createProduct(input: ProductInput) {
     const result = ProductModel.create(input);
     return result;
   } catch (e) {
+    console.log("error", e);
     throw e;
   }
 }

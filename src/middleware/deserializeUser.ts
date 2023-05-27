@@ -2,6 +2,7 @@ import { get } from "lodash";
 import { Request, Response, NextFunction, response } from "express";
 import { verifyJwt } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
+import { validatePassword } from "../service/user.service";
 
 const deserializeUser = async (
   req: Request,
@@ -24,13 +25,12 @@ const deserializeUser = async (
     "accessTokenPublicKey"
   );
 
-  // console.log("valid", valid);
-  // if (!valid) {
-  //   console.log("valid", valid, req.headers);
-  //   // delete req.headers["authorization"];
-  //   // delete req.headers["x-refresh"];
-  //   res.removeHeader("authorization");
-  // }
+  const user = await validatePassword(req.body);
+  // console.log("deserializeRequest", user, req.body);
+
+  if (!valid && !user) {
+    return res.status(401).json({ error: "Please login again" });
+  }
 
   if (decoded) {
     res.locals.user = decoded;
