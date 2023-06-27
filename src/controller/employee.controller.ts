@@ -1,15 +1,13 @@
 import { Request, Response } from "express";
 import { GetAllEmployeeInput } from "../schema/employee.schema";
-import {
-  findAllEmployees,
-  streamAllEmployees,
-} from "../service/employee.service";
+import { findAllEmployees } from "../service/employee.service";
 
 export async function getAllEmployeeHandler(
   req: Request<{}, {}, {}, GetAllEmployeeInput>,
   res: Response
 ) {
   const query = req.query;
+  console.log(query);
   const employees = await findAllEmployees(query);
 
   if (!employees) {

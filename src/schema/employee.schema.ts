@@ -1,4 +1,4 @@
-import { object, number, string, TypeOf, z } from "zod";
+import { object, string, TypeOf, z } from "zod";
 
 // all req.query are string values
 const query = z
@@ -26,5 +26,9 @@ const query = z
 export const getAllEmployeeSchema = object({
   query,
 });
+
+// export interface queryString {
+//   [key: string]: string | string[] | undefined;
+// }
 
 export type GetAllEmployeeInput = TypeOf<typeof getAllEmployeeSchema>;
