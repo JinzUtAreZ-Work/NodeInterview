@@ -12,16 +12,20 @@ const query = z
     sort: string().optional(),
     asc: string().optional(),
   })
-  .refine(
-    (schema) => (schema.asc === "1" || schema.asc === "-1" ? true : false),
-    {
-      message: "Invalid ascending order",
-    }
-  )
+  .refine((schema) => (ascSchema(schema.asc) ? true : false), {
+    message: "Invalid ascending order",
+  })
   .refine((schema) => (isNaN(schema.page) === true ? false : true), {
     message: "Invalid page number",
   });
 //.transform((order) => parseInt(order))
+
+function ascSchema(asc: string | undefined) {
+  if (!asc) return true;
+
+  if (asc === "1" || asc === "-1") return true;
+  return false;
+}
 
 export const getAllEmployeeSchema = object({
   query,
