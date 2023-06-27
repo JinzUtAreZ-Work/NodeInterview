@@ -1,0 +1,10 @@
+May 27th 2023, 9:35:33 pm	71b5a57e-f2d8-4cc5-8b9e-89ad31f9c9e5	undefined: undefined
+May 27th 2023, 9:35:33 pm	3fa870b0-160a-48fd-903b-e62bd5136b96	undefined: undefined
+May 27th 2023, 10:19:12 pm	a87c8f01-6455-497c-8a70-aa5ba3c0d8bc	undefined: undefined
+May 27th 2023, 10:20:20 pm	b4ccb28e-d775-41db-b5ea-4c7064fcf803	undefined: undefined
+May 27th 2023, 10:20:20 pm	dfdf877f-a3df-4cbd-99f9-8139fb56acb4	undefined: undefined
+May 27th 2023, 10:24:03 pm	d7e6ca00-7cc2-455e-81bf-bed007e9a589	undefined: undefined
+May 28th 2023, 4:46:59 pm	575b6e5a-a726-4526-b7f1-904a91fd0a9c	OPTIONS	https://www.google.com	/	Error: Not allowed by CORS
+May 28th 2023, 4:46:59 pm	3f36aed6-fdf3-4e7f-be61-5acf6bb88eb1	GET	https://www.google.com	/	Error: Not allowed by CORS
+May 28th 2023, 4:49:06 pm	7d854e3c-c29d-45d9-af98-135d5e4b2be0	OPTIONS	https://www.google.com	/	Error: Not allowed by CORS
+May 28th 2023, 4:49:06 pm	8eabd308-330a-4b53-8ad9-7f1e1ad8dae2	GET	https://www.google.com	/	Error: Not allowed by CORS
