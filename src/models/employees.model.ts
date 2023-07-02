@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-
+import { Transform } from "stream";
+export class CustomTransform extends Transform {
+  isWritten = false;
+}
 export interface EmployeeInput {
   name: String;
   email: String;

@@ -1,9 +1,11 @@
-import EmployeeModel, { EmployeeDocument } from "../models/employees.model";
+import EmployeeModel, {
+  EmployeeDocument,
+  CustomTransform,
+} from "../models/employees.model";
 import { FilterQuery } from "mongoose";
 
 export async function findAllEmployees(query: FilterQuery<EmployeeDocument>) {
   try {
-    console.log(query);
     let { page, limit, sort, asc } = query;
     if (!page) page = 1;
     if (!limit) limit = 10;
@@ -20,4 +22,29 @@ export async function findAllEmployees(query: FilterQuery<EmployeeDocument>) {
   } catch (e) {
     throw e;
   }
+}
+
+export function streamAllemployees(res: any) {
+  const transformData = new CustomTransform({ objectMode: true });
+
+  transformData._transform = function (
+    chunk: EmployeeDocument,
+    encoding: string,
+    callback: any
+  ) {
+    if (!this.isWritten) {
+      this.isWritten = true;
+      callback(null, "[" + JSON.stringify(chunk));
+    } else {
+      callback(null, "," + JSON.stringify(chunk));
+    }
+  };
+
+  transformData._flush = function (callback: any) {
+    callback(null, "]");
+  };
+
+  const employees = EmployeeModel.find().cursor().pipe(transformData);
+
+  return employees;
 }
