@@ -4,6 +4,7 @@ import productSwagger from "./swagger/product.swagger";
 import sessionRouter from "./routes/session.routes";
 import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes";
+import employeeRouter from "./routes/employee.routes";
 
 function routesDocs(app: Express) {
   /**
@@ -35,6 +36,8 @@ function routesDocs(app: Express) {
 
   productSwagger();
   app.use("/api/products", productRouter);
+
+  app.use("/api/employee", employeeRouter);
 }
 
 export default routesDocs;

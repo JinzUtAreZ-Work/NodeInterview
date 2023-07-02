@@ -46,3 +46,7 @@
     SOLUTION:
     a. db.products.getIndexes()
     b. db.products.dropIndexes()
+
+21. utils/logEvents for records // npm install -D @types/node, npm i uuid --save-dev, npm i --save-dev @types/uuid, npm i cors, npm i --save-dev @types/cors
+
+22. pending errorhandler, cors, findbyName in logEvents pending

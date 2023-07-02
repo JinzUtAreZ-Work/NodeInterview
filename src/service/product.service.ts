@@ -19,6 +19,7 @@ export async function findProduct(
   options: QueryOptions = { lean: true }
 ) {
   try {
+    //console.log(query, options);
     const result = ProductModel.findOne(query, {}, options);
     return result;
   } catch (e) {
