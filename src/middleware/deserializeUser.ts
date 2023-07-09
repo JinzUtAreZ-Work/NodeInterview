@@ -41,7 +41,14 @@ const deserializeUser = async (
     const newAccessToken = await reIssueAccessToken({ refreshToken });
 
     if (newAccessToken) {
-      res.setHeader("x-access-token", newAccessToken);
+      //res.setHeader("x-access-token", newAccessToken);
+      res.set({
+        "x-access-token": newAccessToken,
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        maxAge: 24 * 60 * 60 * 1000,
+      });
     }
 
     const result = verifyJwt(newAccessToken as string, "accessTokenPublicKey");
@@ -57,3 +64,6 @@ const deserializeUser = async (
 };
 
 export default deserializeUser;
+
+// google.com fetch request error
+// pending handleRefreshToken in refreshtokenrotation

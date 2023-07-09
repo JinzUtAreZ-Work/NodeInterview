@@ -1,0 +1,14 @@
+July 9th 2023, 10:13:42 am	22518c8c-6e66-4aee-bdd2-f31ad831ff91	POST	undefined	/api/users
+July 9th 2023, 10:13:42 am	2f296a72-6c13-4733-9476-90f643da26ff	POST	undefined	/api/users
+July 9th 2023, 10:13:42 am	f786dc19-952b-4633-b547-e58087695916	POST	undefined	/api/users
+July 9th 2023, 10:13:43 am	4dceeb98-be4d-4830-8c2c-be8021e6d285	GET	undefined	/api/products/product-123
+July 9th 2023, 10:13:43 am	c805f7a5-a1d7-4101-86b2-a2f7ac7718be	GET	undefined	/api/products/productID_rspc71r3fx
+July 9th 2023, 10:13:43 am	016e60d7-2d10-4d95-af10-166083a0585f	POST	undefined	/api/products
+July 9th 2023, 10:13:43 am	d4e2c353-84b9-4bad-906d-950218b5c4af	POST	undefined	/api/products
+July 9th 2023, 8:14:41 pm	1ecd29bd-f30d-4fed-9b6c-f9b9a7fd67bd	POST	undefined	/api/users
+July 9th 2023, 8:14:41 pm	74d42798-a82c-4ca2-9562-4cbd196d7df9	POST	undefined	/api/users
+July 9th 2023, 8:14:41 pm	1876ff0e-efbd-459f-a658-268075bdf3b8	POST	undefined	/api/users
+July 9th 2023, 8:14:41 pm	9ca33d92-fc6d-46d9-ba79-236c22ecf758	GET	undefined	/api/products/product-123
+July 9th 2023, 8:14:41 pm	59240938-7686-4a4f-bd7f-5c467406483d	GET	undefined	/api/products/productID_06djarg144
+July 9th 2023, 8:14:41 pm	4e847c1f-d1df-46e2-97f0-3cc6819095ea	POST	undefined	/api/products
+July 9th 2023, 8:14:41 pm	e4edc208-3fe2-44eb-a099-b04b16fa05b8	POST	undefined	/api/products

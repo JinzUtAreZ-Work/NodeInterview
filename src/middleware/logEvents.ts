@@ -38,25 +38,26 @@ export const loggingEvents = (
   res: Response,
   next: NextFunction
 ) => {
+  //console.log(`${req.method} ${req.path}`);
   logEvents(
     `${req.method}\t${req.headers.origin}\t${req.url}`,
     dateToday + "=" + "reqLog.txt"
   );
-  console.log(`${req.method} ${req.path}`);
+
   next();
 };
 
-const findByName = async (dir: any, name: string) => {
-  const matchedFiles = [];
-  const files = await fsPromises.readdir(path.join(__dirname, "..", dir));
-  for (const file of files) {
-    const filename = path.parse(file).name;
-    const logDate = filename.split("=");
-    //console.log("files", filename, name, logDate, String(dateToday));
-    if (logDate[0] === String(dateToday) && logDate[1] === name) {
-      matchedFiles.push({ file: file, date: logDate[0] });
-    }
-  }
-  //console.log("files", matchedFiles);
-  return matchedFiles;
-};
+// const findByName = async (dir: any, name: string) => {
+//   const matchedFiles = [];
+//   const files = await fsPromises.readdir(path.join(__dirname, "..", dir));
+//   for (const file of files) {
+//     const filename = path.parse(file).name;
+//     const logDate = filename.split("=");
+//     //console.log("files", filename, name, logDate, String(dateToday));
+//     if (logDate[0] === String(dateToday) && logDate[1] === name) {
+//       matchedFiles.push({ file: file, date: logDate[0] });
+//     }
+//   }
+//   //console.log("files", matchedFiles);
+//   return matchedFiles;
+// };
