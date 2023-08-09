@@ -1,0 +1,8 @@
+August 1st 2023, 9:16:28 pm	217318f7-71fd-4a92-9f08-43cc37d459a3	GET	undefined	/
+August 1st 2023, 9:16:45 pm	65e2d513-f3f2-461f-8281-2caf169f1427	GET	undefined	/docs/
+August 1st 2023, 9:16:45 pm	38db8146-2e68-4005-868d-56830c27e697	GET	undefined	/docs/swagger-ui.css
+August 1st 2023, 9:16:45 pm	b6ac6919-5b09-4914-b8fe-b44b78aa1e4e	GET	undefined	/docs/swagger-ui-bundle.js
+August 1st 2023, 9:16:45 pm	3b6b7e68-5a44-4684-98af-5602cb92b1c0	GET	undefined	/docs/swagger-ui-standalone-preset.js
+August 1st 2023, 9:16:45 pm	fc7355b6-e4ab-415a-b19c-2223a4383b3f	GET	undefined	/docs/swagger-ui-init.js
+August 1st 2023, 9:16:45 pm	d8bc4289-8c52-446e-9040-2b09e10f3d45	GET	undefined	/docs/favicon-32x32.png
+August 1st 2023, 9:17:47 pm	a0b1f0cb-51ac-4f0a-bb5b-0b3158e77443	GET	undefined	/api/uploader/upload-image

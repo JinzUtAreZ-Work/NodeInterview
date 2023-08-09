@@ -5,6 +5,7 @@ import {
   getAllEmployeeHandler,
   streamAllEmployeeHandler,
 } from "../controller/employee.controller";
+import requireUser from "../middleware/requireUser";
 
 // query params is validated in schema used any
 const employeeRouter: Router = Router();
@@ -12,6 +13,6 @@ employeeRouter
   .route("/")
   .get(validateResource(getAllEmployeeSchema), getAllEmployeeHandler as any);
 
-employeeRouter.route("/stream").get(streamAllEmployeeHandler);
+employeeRouter.route("/stream").get(requireUser, streamAllEmployeeHandler);
 
 export default employeeRouter;

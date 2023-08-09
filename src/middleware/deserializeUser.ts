@@ -1,22 +1,26 @@
-import { get } from "lodash";
+import { get, isNil } from "lodash";
 import { Request, Response, NextFunction, response } from "express";
 import { verifyJwt } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
 import { validatePassword } from "../service/user.service";
+
+type accessvalue = string | null;
 
 const deserializeUser = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  //NOTE: the get method converted the null to string null
   const accessToken = get(req, "headers.authorization", "").replace(
     /^Bearer\s/,
     ""
   );
 
   const refreshToken = get(req, "headers.x-refresh")?.toString(); // remove error below
-  //console.log("refresh", refreshToken);
-  if (!accessToken) {
+  //NOTE:  the tokens repetition = no: open api declarations
+  //console.log("tokens", "ref" + refreshToken, "acc" + accessToken);
+  if (!accessToken || accessToken === "null") {
     return next();
   }
 
@@ -26,8 +30,8 @@ const deserializeUser = async (
   );
 
   const user = await validatePassword(req.body);
-  // console.log("deserializeRequest", user, req.body);
 
+  //console.log("deserialize", valid, user, accessToken);
   if (!valid && !user) {
     return res.status(401).json({ error: "Please login again" });
   }

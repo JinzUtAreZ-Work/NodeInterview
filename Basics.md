@@ -49,4 +49,7 @@
 
 21. utils/logEvents for records // npm install -D @types/node, npm i uuid --save-dev, npm i --save-dev @types/uuid, npm i cors, npm i --save-dev @types/cors
 
-22. pending errorhandler, cors, findbyName in logEvents pending
+22. npm i --save-dev @types/multer, npm i multer, npm i multiparty, npm i --save-dev @types/multiparty
+
+23. pending errorhandler, cors, findbyName in logEvents pending, zod
+    multer validation

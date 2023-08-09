@@ -5,6 +5,7 @@ import sessionRouter from "./routes/session.routes";
 import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes";
 import employeeRouter from "./routes/employee.routes";
+import uploadRouter from "./routes/upload.routes";
 
 function routesDocs(app: Express) {
   /**
@@ -26,18 +27,14 @@ function routesDocs(app: Express) {
    *      200:
    *        description: App is up and running
    */
-
   app.get("/healthcheck", (req: Request, res: Response) => res.sendStatus(200));
-
   app.use("/api", userRouter);
-
   sessionSwagger();
   app.use("/api", sessionRouter);
-
   productSwagger();
   app.use("/api/products", productRouter);
-
   app.use("/api/employee", employeeRouter);
+  app.use("/api/uploader", uploadRouter);
 }
 
 export default routesDocs;
