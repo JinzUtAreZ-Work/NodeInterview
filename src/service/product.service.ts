@@ -9,7 +9,7 @@ export async function createProduct(input: ProductInput) {
     const result = ProductModel.create(input);
     return result;
   } catch (e) {
-    console.log("error", e);
+    //console.log("error", e);
     throw e;
   }
 }
@@ -44,7 +44,7 @@ export async function bulkCreateProduct(input: ProductInput) {
     const result = ProductModel.insertMany(input);
     return result;
   } catch (e) {
-    console.log("error", e);
+    //console.log("error", e);
     throw e;
   }
 }

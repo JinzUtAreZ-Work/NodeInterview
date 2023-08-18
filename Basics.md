@@ -51,5 +51,7 @@
 
 22. npm i --save-dev @types/multer, npm i multer, npm i multiparty, npm i --save-dev @types/multiparty
 
-23. pending errorhandler, cors, findbyName in logEvents pending, zod
+23. pending errorhandler, findbyName in logEvents pending, zod
     multer validation
+
+24. npm i workerpool, npm i --save-dev @types/workerpool
