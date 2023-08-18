@@ -12,7 +12,14 @@ export async function createUserHandler(
     const user = await createUser(req.body);
     return res.send(user);
   } catch (e: any) {
-    logger.error(e);
-    return res.status(409).send(e.message);
+    //logger.error(e);
+    console.error("control-create-user", e);
+    let message = e;
+    if (e.code === 11000) {
+      message = "Duplicate email";
+    } else {
+      message = e.errordetails;
+    }
+    return res.status(409).send({ code: 409, message: message });
   }
 }

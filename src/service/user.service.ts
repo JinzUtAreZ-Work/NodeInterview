@@ -8,7 +8,12 @@ export async function createUser(input: UserInput) {
 
     return omit(user.toJSON(), "password");
   } catch (e: any) {
-    throw new Error(e);
+    console.error("create-user", e);
+    let error = e;
+    if (e.code === 11000) {
+      error = { code: e.code, errordetails: e };
+    }
+    throw error;
   }
 }
 

@@ -38,3 +38,13 @@ export async function findAndUpdateProduct(
 export async function deleteProduct(query: FilterQuery<ProductDocument>) {
   return ProductModel.deleteOne(query);
 }
+
+export async function bulkCreateProduct(input: ProductInput) {
+  try {
+    const result = ProductModel.insertMany(input);
+    return result;
+  } catch (e) {
+    console.log("error", e);
+    throw e;
+  }
+}

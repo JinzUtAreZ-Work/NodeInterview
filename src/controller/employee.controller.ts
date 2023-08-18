@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { GetAllEmployeeInput } from "../schema/employee.schema";
 import {
   findAllEmployees,
@@ -25,23 +25,31 @@ class CustomTransform extends Transform {
   isWritten = false;
 }
 
-export function streamAllEmployeeHandler(req: Request, res: Response) {
-  const employees = streamAllemployees(res);
+export function streamAllEmployeeHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const employees = streamAllemployees(res);
 
-  employees
-    .on("data", (chunk: EmployeeDocument) => {
-      let canWrite = res.write(chunk);
-      if (!canWrite) {
-        employees.pause();
-        res.once("drain", () => employees.resume());
-      }
-    })
-    .on("error", function () {
-      res.status(404).json({ error: "Employees records empty" }).end();
+    employees
+      .on("data", (chunk: EmployeeDocument) => {
+        let canWrite = res.write(chunk);
+        if (!canWrite) {
+          employees.pause();
+          res.once("drain", () => employees.resume());
+        }
+      })
+      .on("error", function () {
+        res.status(404).json({ error: "Employees records empty" }).end();
+      });
+
+    employees.on("end", () => {
+      res.end();
     });
-
-  employees.on("end", () => {
-    res.end();
-  });
-  return res.send;
+    return res.send;
+  } catch (e: any) {
+    return res.status(409).send(e.message);
+  }
 }
