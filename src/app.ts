@@ -10,15 +10,18 @@ import swaggerDocs from "./utils/swagger";
 import corsOptions from "./utils/corsOptions";
 import errorHandler from "./middleware/errorHandler";
 
+import { init, get } from "./middleware/workerPool";
+
 const port = config.get<number>("port");
 
 const app = server();
 
 app.use(loggingEvents);
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+//app.use(cors({ origin: true, credentials: true }));
 
-//app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(port, async () => {
   logger.info(`App is running at http://localhost:${port}`);
@@ -26,6 +29,10 @@ app.listen(port, async () => {
   await connect();
 
   swaggerDocs(app, port);
+
+  if (process.env.WORKER_POOL_ENABLED === "1") {
+    await init();
+  }
 });
 
 // import dotenv from "dotenv";

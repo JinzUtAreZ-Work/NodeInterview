@@ -12,7 +12,7 @@ export async function findAllEmployees(query: FilterQuery<EmployeeDocument>) {
     if (!sort) sort = "id";
     if (!asc) asc = -1;
     const skip = (page - 1) * 10;
-
+    //console.log(sort, skip, limit);
     const employees = EmployeeModel.find()
       .sort({ [sort]: asc })
       .skip(skip)

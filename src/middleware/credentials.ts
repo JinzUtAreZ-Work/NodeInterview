@@ -20,7 +20,7 @@ export const credentials = (
   //   allowedOrigins
   // );
   if (allowedOrigins.includes(origin)) {
-    console.log("creds", origin, allowedOrigins);
+    //console.log("creds", allowedOrigins);
     res.header("Access-Control-Allow-Credentials", "true");
   }
   next();

@@ -3,7 +3,7 @@ import ImageDetailsModel from "../models/upload.model";
 
 export async function uploadHandler(req: Request, res: Response) {
   const filename = req.file?.filename;
-  console.log("upload", filename);
+  //console.log("upload", filename);
 
   try {
     await ImageDetailsModel.create({ image: filename });

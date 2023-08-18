@@ -6,6 +6,7 @@ import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes";
 import employeeRouter from "./routes/employee.routes";
 import uploadRouter from "./routes/upload.routes";
+import workerThreadRouter from "./routes/worker.thread.routes";
 
 function routesDocs(app: Express) {
   /**
@@ -35,6 +36,7 @@ function routesDocs(app: Express) {
   app.use("/api/products", productRouter);
   app.use("/api/employee", employeeRouter);
   app.use("/api/uploader", uploadRouter);
+  app.use("/api/workerthread", workerThreadRouter);
 }
 
 export default routesDocs;

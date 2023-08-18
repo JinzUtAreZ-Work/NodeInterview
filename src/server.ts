@@ -2,9 +2,17 @@ import express from "express";
 import routesDocs from "./routesDocs";
 import deserializeUser from "./middleware/deserializeUser";
 //import { errorHandler } from "./middleware/errorHandler";
+import corsOptions from "./utils/corsOptions";
+import cors from "cors";
+import credentials from "./middleware/credentials";
 
 function server() {
   const app = express();
+  //NOTE: newly added
+  app.use(credentials);
+  app.use(cors(corsOptions));
+  // newly added
+
   app.use(express.json());
 
   app.use(deserializeUser);
