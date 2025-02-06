@@ -1,7 +1,7 @@
 import express from "express";
 import routesDocs from "./routesDocs";
 import deserializeUser from "./middleware/deserializeUser";
-//import { errorHandler } from "./middleware/errorHandler";
+import errorHandler from "./middleware/errorHandler";
 import corsOptions from "./utils/corsOptions";
 import cors from "cors";
 import credentials from "./middleware/credentials";
@@ -19,7 +19,8 @@ function server() {
 
   routesDocs(app);
 
-  //app.use(errorHandler);
+  app.use(errorHandler);
+
   return app;
 }
 

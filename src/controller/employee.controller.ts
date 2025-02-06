@@ -13,6 +13,7 @@ export async function getAllEmployeeHandler(
 ) {
   const query = req.query;
   //console.log(query);
+  debugger;
   const employees = await findAllEmployees(query);
 
   if (!employees) {

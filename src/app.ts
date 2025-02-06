@@ -21,7 +21,7 @@ app.use(loggingEvents);
 //app.use(cors(corsOptions));
 //app.use(cors({ origin: true, credentials: true }));
 
-app.use(errorHandler);
+//app.use(errorHandler);
 
 app.listen(port, async () => {
   logger.info(`App is running at http://localhost:${port}`);

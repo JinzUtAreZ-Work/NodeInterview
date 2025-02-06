@@ -1,0 +1,2 @@
+August 21st 2023, 8:28:00 pm	edd67c1b-f14c-4836-996e-c79c8dac8cbe	POST	http://localhost:3000	/register
+August 21st 2023, 8:28:28 pm	397206dc-d554-47a0-8554-2c5c9dec9bf3	POST	http://localhost:3000	/register
